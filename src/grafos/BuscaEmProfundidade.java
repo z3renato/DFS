@@ -6,6 +6,7 @@
 package grafos;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,7 +63,7 @@ public class BuscaEmProfundidade implements ResultadoBuscaProfundidade {
         cor[u] = 1;
         tempo++;
         tempoDescoberta[u] = tempo;
-        Set<Integer> adjacentes = g.conjuntoDeAdjacentes(u);
+        List<Integer> adjacentes = g.listDeAdjacentes(u);
         for (int v : adjacentes) {
             if (cor[v] == 1) {
                 arestasDeRetorno.add(new Aresta(u, v));

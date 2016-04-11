@@ -5,10 +5,14 @@
  */
 package grafos;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -73,6 +77,8 @@ public class ListaAdjacencia implements Grafo {
         for (Aresta a : listadj[vertice]) {
             listDeAdjacentes.add(a.getDestino());
         }
+        
+        Collections.sort(listDeAdjacentes);
         return listDeAdjacentes;
     }
 
@@ -108,11 +114,15 @@ public class ListaAdjacencia implements Grafo {
 
     @Override
     public void escreveArestas() {
-        System.out.println("");
-        for (List<Aresta> listadj1 : listadj) {
-            for (Aresta a : listadj1) {
-                System.out.println(a.getOrigem() + "\t" + a.getDestino() + "\t" + (int) a.getPeso());
+        System.out.println("Arestas do grafo");
+        for (int i = 0; i < listadj.length; i++) {
+
+            try {
+                System.out.println("Vertice: "+i+" : "+listDeAdjacentes(i).toString());
+            } catch (Exception ex) {
+                Logger.getLogger(MatrizAdjacencia.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
     }
 

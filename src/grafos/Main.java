@@ -18,40 +18,12 @@ public class Main {
         AlgoritmosGrafos a = new AlgoritmosGrafos();
 //        Grafo g = a.carregarGrafo("instanciaExemplo.data", LISTA_DE_ADJACENCIA);
 //        Grafo g = a.carregarGrafo("instanciaExemplo.data", LISTA_DE_ADJACENCIA);
-        Grafo g = a.carregarGrafo("instanciaExemplo.data", LISTA_DE_ADJACENCIA);
-        Grafo g2 = a.carregarGrafo("instanciaExemplo.data", LISTA_DE_ADJACENCIA);
-
-        BuscaEmProfundidade b = new BuscaEmProfundidade();
-        System.out.println("Conjunto de adjacentes");
-        System.out.println(g.conjuntoDeAdjacentes(0));
-        System.out.println(g.conjuntoDeAdjacentes(1));
-        System.out.println(g.conjuntoDeAdjacentes(2));
-        System.out.println(g.conjuntoDeAdjacentes(3));
-        System.out.println("");
-        //b.dfs(g);
-        System.out.println("Arestas");
+        Grafo g = a.carregarGrafo("C:\\Users\\tribi\\Documents\\input graph\\v_00005_a0000010.grafo", LISTA_DE_ADJACENCIA);
+        Grafo g2 = a.carregarGrafo("C:\\Users\\tribi\\Documents\\input graph\\v_00005_a0000010.grafo", MATRIZ_DE_ADJACENCIA);
         g.escreveArestas();
         System.out.println("");
         System.out.println("");
-        System.out.println("Arestas de Árvore");
-        b.escreveArestas(b.arestasDeArvore(g));
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Arestas de Retorno");
-        b.escreveArestas(b.arestasDeRetorno(g));
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Arestas de Avanço");
-        b.escreveArestas(b.arestasDeAvanco(g));
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Arestas de Cruzamento");
-        b.escreveArestas(b.arestasDeCruzamento(g));
-        System.out.println("");
-        System.out.println("");
-        System.out.println("resultado da busca");
-        b.escreveBusca();
-
+        g2.escreveArestas();
         /*
         System.out.println("Aresta adicionada");
         g.adicionarAresta(3, 2, 32);

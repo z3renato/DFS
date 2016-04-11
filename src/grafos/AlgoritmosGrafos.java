@@ -6,6 +6,7 @@
 package grafos;
 
 //throw new UnsupportedOperationException("Not supported yet.");
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.List;
@@ -22,36 +23,34 @@ public class AlgoritmosGrafos implements AlgoritmosEmGrafos {
         Grafo grafo = null;
 
         int numeroDeVertices;
-        File arquivoCarregado;
-        FileReader arq;
-        Scanner read;
-
-        arquivoCarregado = new File(path);
-        arq = new FileReader(arquivoCarregado);
-        read = new Scanner(arq);
-        numeroDeVertices = read.nextInt();
+        int numeroDeArestas;
+        
+        FileReader arq = new FileReader(path);
+            BufferedReader lerArq = new BufferedReader(arq);
+            String[] nVertice = lerArq.readLine().split("\\s+");
+            numeroDeVertices = Integer.parseInt(nVertice[2]);
+            System.out.println("Num Vértices: "+numeroDeVertices);
+            String[] nAresta = lerArq.readLine().split("\\s+");
+            numeroDeArestas= Integer.parseInt(nAresta[2]);
+            System.out.println("Num Arestas: "+numeroDeArestas);
         if (t == TipoDeRepresentacao.MATRIZ_DE_ADJACENCIA) {
             grafo = new MatrizAdjacencia(numeroDeVertices);
         }
         if (t == TipoDeRepresentacao.LISTA_DE_ADJACENCIA)
            grafo = new ListaAdjacencia(numeroDeVertices) ;
         if (t == TipoDeRepresentacao.MATRIZ_DE_INCIDENCIA)
-           grafo = new MatrizIncidencia(numeroDeVertices) ;
+           grafo = new MatrizIncidencia(numeroDeVertices, numeroDeArestas) ;
 
-        read.nextLine();
-        while (read.hasNextLine()) {
-            System.out.println("");
-            String linha = read.nextLine();
-            if (linha != "") {
-                int o, d, p; //origem, destino e peso
-                String split[] = linha.split("\t");
-                o = Integer.parseInt(split[0]);
-                d = Integer.parseInt(split[1]);
-                p = Integer.parseInt(split[2]);
-
-                grafo.adicionarAresta(o, d, (double) p);
+        while(lerArq.ready()){
+                String[] linha = lerArq.readLine().split("\\s+");
+                
+                
+               
+                    grafo.adicionarAresta(Integer.parseInt(linha[0]), Integer.parseInt(linha[1]), Double.parseDouble(linha[2]));
+                    
+                
+                //System.out.println(linha[0]+"->"+linha[1]+"\tPeso: "+linha[2]);
             }
-        }
         //grafo.escreveArestas();
         System.out.println("Grafo carregado...");
         return grafo;
@@ -59,6 +58,11 @@ public class AlgoritmosGrafos implements AlgoritmosEmGrafos {
 
     @Override
     public ResultadoBuscaProfundidade buscaEmProfundidade(Grafo g, List<Integer> ordemDeVisita) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ResultadoBuscaLargura buscaEmLargura(Grafo g, int verticeInicial) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

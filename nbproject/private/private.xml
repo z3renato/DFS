@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/Trab01Grafos/src/grafos/MatrizIncidencia.java</file>
-            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/Trab01Grafos/src/grafos/AlgoritmosGrafos.java</file>
-            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/Trab01Grafos/src/grafos/ListaAdjacencia.java</file>
-            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/Trab01Grafos/src/grafos/Main.java</file>
-            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/Trab01Grafos/src/grafos/BuscaEmProfundidade.java</file>
+            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/DFS/src/grafos/Fila.java</file>
+            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/DFS/src/grafos/BuscaEmLargura.java</file>
+            <file>file:/C:/Users/tribi/Documents/NetBeansProjects/DFS/src/grafos/TestaFila.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,10 +5,13 @@
  */
 package grafos;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,7 +42,7 @@ public class MatrizAdjacencia implements Grafo {
 
     @Override
     public boolean existeAresta(int origem, int destino) {
-        return matriz[origem][destino] !=0;
+        return matriz[origem][destino] != 0;
     }
 
     @Override
@@ -58,8 +61,9 @@ public class MatrizAdjacencia implements Grafo {
         int cont = 0;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                if(matriz[i][j]!=0)
+                if (matriz[i][j] != 0) {
                     cont++;
+                }
             }
         }
         return cont;
@@ -70,18 +74,21 @@ public class MatrizAdjacencia implements Grafo {
     public List<Integer> listDeAdjacentes(int vertice) throws Exception {
         List adjacentes = new LinkedList<Integer>();
         for (int i = 0; i < matriz.length; i++) {
-            if(matriz[vertice][i]!=0)
+            if (matriz[vertice][i] != 0) {
                 adjacentes.add(i);
+            }
         }
+         Collections.sort(adjacentes);
         return adjacentes;
     }
 
     @Override
     public Set<Integer> conjuntoDeAdjacentes(int vertice) throws Exception {
-        Set<Integer> conjuntoDeAdjacentes = new  HashSet<Integer>();
-         for (int i = 0; i < matriz.length; i++) {
-            if(matriz[vertice][i]!=0)
+        Set<Integer> conjuntoDeAdjacentes = new HashSet<Integer>();
+        for (int i = 0; i < matriz.length; i++) {
+            if (matriz[vertice][i] != 0) {
                 conjuntoDeAdjacentes.add(i);
+            }
         }
         return conjuntoDeAdjacentes;
     }
@@ -92,26 +99,26 @@ public class MatrizAdjacencia implements Grafo {
     }
 
     @Override
-    public Set<Integer> vertices() {    
+    public Set<Integer> vertices() {
         Set<Integer> vertices = new HashSet<>();
         for (int i = 0; i < matriz.length; i++) {
             vertices.add(i);
         }
         return vertices;
     }
+
     @Override
-    public void escreveArestas(){
+    public void escreveArestas() {
         System.out.println("Arestas do grafo");
         for (int i = 0; i < matriz.length; i++) {
-            
-            for (int j = 0; j < matriz.length; j++) {
-                if(matriz[i][j]!=0){
-                    System.out.print(i+"\t"+j+"\t"+(int)matriz[i][j]);
-                }
-                System.out.println("");
-            }
-            
-        }
-    }
 
+            try {
+                System.out.println("Vertice: "+i+" : "+listDeAdjacentes(i).toString());
+            } catch (Exception ex) {
+                Logger.getLogger(MatrizAdjacencia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }
 }
