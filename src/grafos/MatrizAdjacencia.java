@@ -78,7 +78,7 @@ public class MatrizAdjacencia implements Grafo {
                 adjacentes.add(i);
             }
         }
-         Collections.sort(adjacentes);
+        Collections.sort(adjacentes);
         return adjacentes;
     }
 
@@ -113,12 +113,17 @@ public class MatrizAdjacencia implements Grafo {
         for (int i = 0; i < matriz.length; i++) {
 
             try {
-                System.out.println("Vertice: "+i+" : "+listDeAdjacentes(i).toString());
+                System.out.println("Vertice: " + i + " : " + listDeAdjacentes(i).toString());
             } catch (Exception ex) {
                 Logger.getLogger(MatrizAdjacencia.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
 
+    }
+
+    @Override
+    public double getPeso(int u, int v) {
+        return matriz[u][v];
     }
 }
