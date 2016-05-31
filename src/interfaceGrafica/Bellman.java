@@ -73,8 +73,9 @@ public class Bellman extends javax.swing.JFrame {
 
         b.escreve(verticeOrigem, vertice);
         for (int i = 0; i < b.caminho.size(); i++) {
-            table.addRow(new Integer[]{b.caminho.get(i), (int) b.d[i]});
+            table.addRow(new Integer[]{b.caminho.get(i), (int) b.d[b.caminho.get(i)]});
         }
+        jLabelCusto.setText(Double.toString(b.d[vertice]));
 
     }
 
@@ -337,7 +338,7 @@ public class Bellman extends javax.swing.JFrame {
         int vertice = Integer.parseInt(jTextVertice.getText());
         limpaTable();
         populaBFSunica(vertice);
-        jLabelCusto.setText(Double.toString(b.custo));
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

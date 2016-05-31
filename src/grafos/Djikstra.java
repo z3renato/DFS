@@ -8,29 +8,32 @@ package grafos;
 import grafos.Aresta;
 import grafos.Grafo;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
- * @author felipeaugusto
+ * @author tribi
  */
 public class Djikstra {
 
     Grafo g;
     public double[] d;
     public int[] pai;
+    public double custo;
     int numVertices;
     int origem;
-
+    public List<Integer> caminho;
     boolean[] Q;
     LinkedList<Integer> S;
 
     public Djikstra(Grafo g, int origem) throws Exception {
         this.g = g;
+        custo = 0;
         this.numVertices = g.numeroDeVertices();
         this.d = new double[numVertices];
         this.pai = new int[numVertices];
         this.origem = origem;
-
+        caminho = new LinkedList<>();
         this.inicializa(g, origem);
 
         this.S = new LinkedList<>();
@@ -38,10 +41,6 @@ public class Djikstra {
         this.runDjikstra();
 
     }
-
-    
-
-    
 
     public void runDjikstra() throws Exception {
 //        trataInal();
@@ -99,6 +98,20 @@ public class Djikstra {
         System.out.println("Vertice" + "\t" + "pai" + "\t" + "distancia");
         for (int i = 0; i < pai.length; i++) {
             System.out.println(i + "\t" + pai[i] + "\t" + d[i]);
+        }
+    }
+
+    public void caminho(int s, int v) {
+        if (v == s) {
+            caminho.add(s);
+            System.out.print(s + "-");
+        } else if (pai[v] == -1) {
+
+        } else {
+            caminho(s, pai[v]);
+            custo += d[v];
+            caminho.add(v);
+            System.out.print(v + "-");
         }
     }
 

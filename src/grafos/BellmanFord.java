@@ -7,7 +7,7 @@ package grafos;
  */
 /**
  *
- * @author felipeaugusto
+ * @author tribi
  */
 import grafos.Aresta;
 import grafos.Grafo;
