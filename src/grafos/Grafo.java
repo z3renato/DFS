@@ -33,4 +33,6 @@ public interface Grafo {
     public void escreveArestas();
 
     public double getPeso(int u, int v);
+    
+    public List getArestas();
 }

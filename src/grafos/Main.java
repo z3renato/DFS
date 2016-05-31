@@ -18,12 +18,24 @@ public class Main {
         AlgoritmosGrafos a = new AlgoritmosGrafos();
 //        Grafo g = a.carregarGrafo("instanciaExemplo.data", LISTA_DE_ADJACENCIA);
 //        Grafo g = a.carregarGrafo("instanciaExemplo.data", LISTA_DE_ADJACENCIA);
-        Grafo g = a.carregarGrafo("C:\\Users\\tribi\\Documents\\input graph\\v_00005_a0000010.grafo", LISTA_DE_ADJACENCIA);
-        Grafo g2 = a.carregarGrafo("C:\\Users\\tribi\\Documents\\input graph\\v_00005_a0000010.grafo", MATRIZ_DE_ADJACENCIA);
-        g.escreveArestas();
+      //  Grafo g = a.carregarGrafo("C:\\Users\\tribi\\Documents\\input graph\\v_00005_a0000010.grafo", LISTA_DE_ADJACENCIA);
+        Grafo g2 = a.carregarGrafo("C:\\Users\\Mario\\Documents\\Ze\\netbeans\\grafos\\input\\v_00005_a0000010.grafo", MATRIZ_DE_ADJACENCIA);
+        
         System.out.println("");
         System.out.println("");
         g2.escreveArestas();
+        
+        BellmanFord b = new BellmanFord(g2, 0);
+        b.runBellmanFord();
+       
+        for (int i = 0; i < b.pai.length; i++) {
+            System.out.print(b.pai[i]+"-");
+        }
+        System.out.println("--------------------");
+        System.out.println("--------------------");
+        b.escreve(0, 4);
+        System.out.println("");
+        System.out.println(b.custo);
         /*
         System.out.println("Aresta adicionada");
         g.adicionarAresta(3, 2, 32);

@@ -126,4 +126,16 @@ public class MatrizAdjacencia implements Grafo {
     public double getPeso(int u, int v) {
         return matriz[u][v];
     }
+
+    @Override
+    public List getArestas() {
+        List<Aresta> arestas = new LinkedList<>();
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if(matriz[i][j]!=0)
+                    arestas.add(new Aresta(i, j,matriz[i][j]));
+            }
+        }
+        return arestas;
+    }
 }
